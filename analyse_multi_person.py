@@ -16,7 +16,7 @@ cap = cv2.VideoCapture("videos/test_3.mp4")
 # Récupérer les dimensions de la vidéo
 frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-out = cv2.VideoWriter('videos/output.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 30, (frame_width, frame_height))
+out = cv2.VideoWriter('videos/output.mp4', cv2.VideoWqriter_fourcc(*'mp4v'), 30, (frame_width, frame_height))
 
 # Initialiser Mediapipe Pose
 with mp_pose.Pose(

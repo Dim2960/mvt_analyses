@@ -5,7 +5,7 @@ import mediapipe as mp
 mp_pose = mp.solutions.pose
 mp_drawing = mp.solutions.drawing_utils
 
-cap = cv2.VideoCapture("videos/test_5.mp4")  # Remplace 0 par le chemin d'une vidéo si nécessaire
+cap = cv2.VideoCapture("videos/test_5.mp4")
 
 # Définition du codec et du fichier de sortie vidéo
 frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
