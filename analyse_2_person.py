@@ -16,21 +16,21 @@ import cv2
 import numpy as np
 
 # Chemin vers le modèle
-model_path = 'model/pose_landmarker_heavy.task'
+model_path = 'model/pose_landmarker_lite.task'
 
 # Création des options en mode VIDEO
 options = PoseLandmarkerOptions(
     base_options=mp.tasks.BaseOptions(model_asset_path=model_path),
     running_mode=RunningMode.VIDEO,
-    num_poses=2,
-    min_pose_detection_confidence=0.5,
-    min_pose_presence_confidence=0.2,
-    min_tracking_confidence=0.2,
+    num_poses=4,
+    min_pose_detection_confidence=0.4,
+    min_pose_presence_confidence=0.5,
+    min_tracking_confidence=0.95,
     output_segmentation_masks=True
 )
 
 # Ouvrir la vidéo (ou utiliser 0 pour la webcam)
-cap = cv2.VideoCapture("videos/test_.mp4")
+cap = cv2.VideoCapture("videos/test_7.mp4")
 if not cap.isOpened():
     print("Erreur lors de l'ouverture de la vidéo.")
     exit()
