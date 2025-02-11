@@ -6,7 +6,7 @@ from supervision import BoxAnnotator
 from supervision.detection.core import Detections
 
 # --------------------- CONFIGURATION ---------------------
-VIDEO_SOURCE = "videos/test_10.mp4"  # Chemin de la vidéo ou 0 pour la webcam
+VIDEO_SOURCE = "videos/test_15.mp4"  # Chemin de la vidéo ou 0 pour la webcam
 # CONFIDENCE_THRESHOLD = 0.6        # Seuil de confiance pour YOLO - combat
 CONFIDENCE_THRESHOLD = 0.8      # 0.8 ok # Seuil de confiance pour YOLO - Kata
 
@@ -14,15 +14,17 @@ CONFIDENCE_THRESHOLD = 0.8      # 0.8 ok # Seuil de confiance pour YOLO - Kata
 # Charger le modèle YOLOv8
 model = YOLO("model/yolo11x.pt")  # Vous pouvez utiliser yolov8s.pt pour plus de rapidité
 
-max_cosine_distance = [0.23, 0.17, 0.29, 0.26]
-n_init =[50, 25, 75, 100]
+max_age = [400, 200, 600, 800, 100]
+max_cosine_distance = [0.23, 0.17, 0.29, 0.26, 0.13]
+n_init =[50, 25, 75, 100, 5, 10]
+nn_budget = [300, 100, 500, 700, 50, 150]
 
 # Initialiser DeepSORT pour kata et combat
 tracker = DeepSort(
-    max_age= 400,             # Nombre maximum de frames sans mise à jour avant la suppression d’un track
-    n_init= n_init[0],               # Nombre minimum d’images pour confirmer un track
+    max_age= max_age[4],             # Nombre maximum de frames sans mise à jour avant la suppression d’un track
+    n_init= n_init[1],               # Nombre minimum d’images pour confirmer un track
     max_cosine_distance= max_cosine_distance[1], # 0.23,  # Seuil de distance pour l’association des features
-    nn_budget= 300,          # Limite du budget de voisinage (peut être None)
+    nn_budget= nn_budget[1],          # Limite du budget de voisinage (peut être None)
     override_track_class= 0,  # Ici, on restreint le tracking à une classe en particulier 0:person
     half = False,
     bgr=True, 
