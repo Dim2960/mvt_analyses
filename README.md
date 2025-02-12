@@ -2,18 +2,18 @@
 
 ## 🌟 Description
 
-Ce projet combine YOLO pour la détection d'objets, DeepSORT pour le suivi d'objets, et MediaPipe pour la détection de poses. Il traite une vidéo en détectant, suivant et annotant les objets et les poses, puis enregistre le résultat dans un fichier vidéo.
+Ce projet combine YOLO pour la détection de personnes, DeepSORT pour le suivi des personnes, et MediaPipe pour la détection de poses. Il traite une vidéo en détectant, suivant et annotant les personnes et les poses, puis enregistre le résultat dans un fichier vidéo.
 
-L'objectif est de pouvoir faire un suivi individualisé d'une personne et de pouvoir observer ses mouvements pour 
+Dans un cas d'usage, l'objectif serait de réaliser un suivi précis des combattants de judo dans une vidéo, afin de détecter et d'analyser les mouvements et techniques qu'ils exécutent. Ce projet vise à fournir des informations détaillées sur les actions des judokas, permettant ainsi une analyse statistique des techniques et de la performance globale lors d'un championnat, par exemple.
 
 🚨 **Attention Limitation :** le nombre de personne détecté en terme de position n'est pas ajustable automatiquement est un max doit être defini dans les paramètres de mediapipe.landmarker
 
 ## 💡 Fonctionnalités
 
-- Détection d'objets avec YOLO.
-- Suivi d'objets avec DeepSORT.
+- Détection de personne avec YOLO.
+- Suivi avec DeepSORT.
 - Détection de poses avec MediaPipe.
-- Annotation des objets et des poses sur les frames vidéo.
+- Annotation des personnes et des poses sur les frames vidéo.
 - Enregistrement de la vidéo annotée.
 
 ## 💪 Prérequis
@@ -122,7 +122,7 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 - [DeepSORT](https://github.com/nwojke/deep_sort)
 - [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/)
 
-## 📚 Contribution
+## 🌐 Contribution
 
 N'hésitez pas à contribuer au projet en soumettant des pull requests ou en signalant des bugs.
 
