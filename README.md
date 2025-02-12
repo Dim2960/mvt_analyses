@@ -24,16 +24,16 @@ Ce projet combine YOLO pour la détection d'objets, DeepSORT pour le suivi d'obj
 
 1. Clonez le dépôt :
 
-    \`\`\`bash
+    ```bash
     git clone https://github.com/Dim2960/mvt_analyses.git
     cd mvt_analyses
-    \`\`\`
+    ```
 
 2. Installez les dépendances :
 
-    \`\`\`bash
+    ```bash
     pip install -r requirements.txt
-    \`\`\`
+    ```
 
 ## Utilisation
 
@@ -41,9 +41,9 @@ Ce projet combine YOLO pour la détection d'objets, DeepSORT pour le suivi d'obj
 
 2. Exécutez le script principal :
 
-    \`\`\`bash
+    ```bash
     python main.py
-    \`\`\`
+    ```
 
 3. Le script traitera la vidéo et enregistrera le résultat dans le dossier \`videos\` avec le préfixe \`result_\`.
 
@@ -53,7 +53,7 @@ Vous pouvez configurer les paramètres des modèles et du tracker en modifiant l
 
 ### Paramètres des modèles
 
-\`\`\`python
+```python
 MODEL_PARAMS = {
     'yolo_model_path': \"model/yolo11x.pt\",
     'pose_model_path': 'model/pose_landmarker_lite.task',
@@ -64,11 +64,11 @@ MODEL_PARAMS = {
     'min_tracking_confidence': 0.95,
     'output_segmentation_masks': True
 }
-\`\`\`
+```
 
 ### Paramètres du tracker
 
-\`\`\`python
+```python
 TRACKER_PARAMS = {
     'max_age': 400,
     'n_init': 50,
@@ -79,11 +79,11 @@ TRACKER_PARAMS = {
     'bgr': True,
     'max_iou_distance': 0.9
 }
-\`\`\`
+```
 
 ## Structure du projet
 
-\`\`\`
+```
 votre-projet/
 │
 ├── videos/
@@ -97,7 +97,7 @@ votre-projet/
 ├── main.py
 ├── requirements.txt
 └── README.md
-\`\`\`
+```
 
 ## Licence
 
