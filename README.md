@@ -48,7 +48,7 @@ Dans un cas d'usage, l'objectif serait de réaliser un suivi précis des combatt
 2. Exécutez le script principal :
 
     ```bash
-    python main.py
+    python detection.py
     ```
 
 3. Le script traitera la vidéo et enregistrera le résultat dans le dossier \`videos\` avec le préfixe \`result_\`.

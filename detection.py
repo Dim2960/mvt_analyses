@@ -12,10 +12,10 @@ from mediapipe.python._framework_bindings import image
 from mediapipe import ImageFormat
 
 # Configuration initiale
-VIDEO_SOURCE = "videos/test_17.mp4"
+VIDEO_SOURCE = "videos/test_15.mp4"
 CONFIDENCE_THRESHOLD = 0.8
 MODEL_PATH = "model/yolo11x.pt"
-POSE_MODEL_PATH = 'model/pose_landmarker_lite.task'
+POSE_MODEL_PATH = 'model/pose_landmarker_heavy.task'
 OUTPUT_FILE = "videos/result_" + VIDEO_SOURCE.replace("videos/", "")
 
 # Paramètres pour le tracker DeepSort
@@ -277,16 +277,16 @@ def process_video():
                 continue
 
             roi = annotated_frame[y1:y2, x1:x2]
-            print(roi.shape)
+
             if roi.size == 0:
                 continue
 
-            # pose_landmarker_result = detect_poses(pose_landmarker, roi, roi_timestamp)
+            pose_landmarker_result = detect_poses(pose_landmarker, roi, roi_timestamp)
             roi_timestamp += 1
-            # roi = draw_poses(roi, pose_landmarker_result, tid)
+            roi = draw_poses(roi, pose_landmarker_result, tid)
             annotated_frame[y1:y2, x1:x2] = roi
 
-        cv2.imshow("YOLO11x + DeepSORT + Pose Landmarker", annotated_frame)
+        cv2.imshow("YOLOv8n + DeepSORT + Pose Landmarker", annotated_frame)
         video_writer.write(annotated_frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
