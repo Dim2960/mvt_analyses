@@ -6,7 +6,7 @@ Ce projet combine YOLO pour la détection de personnes, DeepSORT pour le suivi d
 
 Dans un cas d'usage, l'objectif serait de réaliser un suivi précis des combattants de judo dans une vidéo, afin de détecter et d'analyser les mouvements et techniques qu'ils exécutent. Ce projet vise à fournir des informations détaillées sur les actions des judokas, permettant ainsi une analyse statistique des techniques et de la performance globale lors d'un championnat, par exemple.
 
-🚨 **Attention Limitation :** le nombre de personne détecté en terme de position n'est pas ajustable automatiquement est un max doit être defini dans les paramètres de mediapipe.landmarker
+🚨 **Attention Limitation :** le nombre de personne détecté en terme de position n'est pas ajustable automatiquement est un max doit être defini dans le paramètre 'num_poses' de mediapipe.landmarker 
 
 ## 💡 Fonctionnalités
 

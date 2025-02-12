@@ -12,34 +12,35 @@ from mediapipe.python._framework_bindings import image
 from mediapipe import ImageFormat
 
 # Configuration initiale
-VIDEO_SOURCE = "videos/test_15.mp4"
-CONFIDENCE_THRESHOLD = 0.8
+VIDEO_SOURCE = "videos/test_13.mp4"
+CONFIDENCE_THRESHOLD = 0.5 #0.8
 MODEL_PATH = "model/yolo11x.pt"
 POSE_MODEL_PATH = 'model/pose_landmarker_heavy.task'
 OUTPUT_FILE = "videos/result_" + VIDEO_SOURCE.replace("videos/", "")
 
 # Paramètres pour le tracker DeepSort
 TRACKER_PARAMS = {
-    'max_age': 400,
-    'n_init': 50,
-    'max_cosine_distance': 0.17,
-    'nn_budget': 300,
-    'override_track_class': 0,
-    'half': False,
-    'bgr': True,
-    'max_iou_distance': 0.9
+    'max_age': 400,  # Nombre maximum de frames pendant lesquels un objet peut être perdu avant d'être supprimé.
+    'n_init': 50,  # Nombre de détections consécutives nécessaires pour initialiser une piste.
+    'max_cosine_distance': 0.17,  # Distance cosinus maximale pour associer des détections à des pistes.
+    'nn_budget': 300,  # Taille du budget pour le voisin le plus proche.
+    'override_track_class': 0,  # Classe de l'objet à suivre (0 pour suivre toutes les classes).
+    'half': False,  # Indique si les images doivent être réduites de moitié.
+    'bgr': True,  # Indique si les images sont en format BGR.
+    'max_iou_distance': 0.9  # Distance IoU maximale pour associer des détections à des pistes.
 }
 
-# Paramètres pour le model PoseLandmarker de MediaPipe
+# Paramètres pour le modèle PoseLandmarker de MediaPipe
 LANDMARK_PARAMS = {
-    'base_options': mp.tasks.BaseOptions(model_asset_path=POSE_MODEL_PATH),
-    'running_mode': RunningMode.VIDEO,
-    'num_poses': 3,
-    'min_pose_detection_confidence': 0.75,
-    'min_pose_presence_confidence': 0.5,
-    'min_tracking_confidence': 0.95,
-    'output_segmentation_masks': True
+    'base_options': mp.tasks.BaseOptions(model_asset_path=POSE_MODEL_PATH),  # Chemin vers le modèle PoseLandmarker.
+    'running_mode': RunningMode.VIDEO,  # Mode d'exécution du modèle (VIDEO pour le traitement vidéo).
+    'num_poses': 3,  # Nombre maximum de poses à détecter dans une image.
+    'min_pose_detection_confidence': 0.75,  # Seuil de confiance minimum pour détecter une pose.
+    'min_pose_presence_confidence': 0.5,  # Seuil de confiance minimum pour considérer qu'une pose est présente.
+    'min_tracking_confidence': 0.95,  # Seuil de confiance minimum pour suivre une pose détectée.
+    'output_segmentation_masks': True  # Indique si le modèle doit générer des masques de segmentation pour les poses détectées.
 }
+
 
 # Connexions entre les points clés des poses
 POSE_CONNECTIONS = [
@@ -57,9 +58,38 @@ POSE_CONNECTIONS = [
     (29, 31), (30, 32)
 ]
 
+
 # Couleurs pour les connexions et les points clés des poses
-COLOR_CON = [(16, 199, 22), (0, 222, 205), (186, 38, 14)]
-COLOR_LAND = [(0, 39, 222), (0, 39, 222), (0, 39, 222)]
+COLOR_CON = [
+    (16, 199, 22),    # Vert clair
+    (0, 222, 205),    # Cyan
+    (255, 255, 0),    # Jaune
+    (255, 165, 0),    # Orange
+    (0, 255, 255),    # Cyan clair
+    (128, 0, 128),    # Violet
+    (255, 0, 255),    # Magenta
+    (128, 128, 128),  # Gris
+    (186, 38, 14),    # Rouge foncé
+    (255, 0, 0),      # Rouge
+    (0, 255, 0),      # Vert
+    (255, 215, 0),    # Or
+    (210, 105, 30),   # Chocolat
+    (220, 20, 60),    # Rouge cerise
+    (0, 128, 0),      # Vert foncé
+    (0, 0, 255),      # Bleu
+    (0, 0, 128),      # Bleu foncé
+    (128, 128, 0),    # Vert olive
+    (128, 0, 0),      # Marron
+    (0, 128, 128),    # Turquoise
+    (0, 0, 0),        # Noir
+    (255, 255, 255)   # Blanc
+]
+
+COLOR_LAND = [
+    (0, 39, 222), 
+    (0, 39, 222), 
+    (0, 39, 222)
+]
 
 
 def initialize_models():
