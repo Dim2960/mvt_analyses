@@ -1,8 +1,14 @@
-## Description
+# Person Detection and Tracking with Pose Estimation
+
+## 🌟 Description
 
 Ce projet combine YOLO pour la détection d'objets, DeepSORT pour le suivi d'objets, et MediaPipe pour la détection de poses. Il traite une vidéo en détectant, suivant et annotant les objets et les poses, puis enregistre le résultat dans un fichier vidéo.
 
-## Fonctionnalités
+L'objectif est de pouvoir faire un suivi individualisé d'une personne et de pouvoir observer ses mouvements pour 
+
+🚨 **Attention Limitation :** le nombre de personne détecté en terme de position n'est pas ajustable automatiquement est un max doit être defini dans les paramètres de mediapipe.landmarker
+
+## 💡 Fonctionnalités
 
 - Détection d'objets avec YOLO.
 - Suivi d'objets avec DeepSORT.
@@ -10,9 +16,9 @@ Ce projet combine YOLO pour la détection d'objets, DeepSORT pour le suivi d'obj
 - Annotation des objets et des poses sur les frames vidéo.
 - Enregistrement de la vidéo annotée.
 
-## Prérequis
+## 💪 Prérequis
 
-- Python 3.10
+- Python 3.10.9
 - OpenCV
 - NumPy
 - Ultralytics YOLO
@@ -20,7 +26,7 @@ Ce projet combine YOLO pour la détection d'objets, DeepSORT pour le suivi d'obj
 - Supervision
 - MediaPipe
 
-## Installation
+## 🛠 Installation
 
 1. Clonez le dépôt :
 
@@ -35,7 +41,7 @@ Ce projet combine YOLO pour la détection d'objets, DeepSORT pour le suivi d'obj
     pip install -r requirements.txt
     ```
 
-## Utilisation
+## 🔍 Utilisation
 
 1. Placez votre vidéo source dans le dossier \`videos\` et nommez-la \`test_17.mp4\`.
 
@@ -47,18 +53,20 @@ Ce projet combine YOLO pour la détection d'objets, DeepSORT pour le suivi d'obj
 
 3. Le script traitera la vidéo et enregistrera le résultat dans le dossier \`videos\` avec le préfixe \`result_\`.
 
-## Configuration
+## ⚙️ Configuration
 
 Vous pouvez configurer les paramètres des modèles et du tracker en modifiant les dictionnaires \`MODEL_PARAMS\` et \`TRACKER_PARAMS\` dans le script principal.
+
+Cette exemple est optimisé pour un combat de judo.
 
 ### Paramètres des modèles
 
 ```python
 MODEL_PARAMS = {
-    'yolo_model_path': \"model/yolo11x.pt\",
+    'yolo_model_path': 'model/yolo11x.pt',
     'pose_model_path': 'model/pose_landmarker_lite.task',
     'running_mode': RunningMode.VIDEO,
-    'num_poses': 1,
+    'num_poses': 3,
     'min_pose_detection_confidence': 0.75,
     'min_pose_presence_confidence': 0.5,
     'min_tracking_confidence': 0.95,
@@ -74,46 +82,48 @@ TRACKER_PARAMS = {
     'n_init': 50,
     'max_cosine_distance': 0.17,
     'nn_budget': 300,
-    'override_track_class': None,
+    'override_track_class': 0,
     'half': False,
     'bgr': True,
     'max_iou_distance': 0.9
 }
 ```
 
-## Structure du projet
+## 🗃️ Structure du projet
 
 ```
-votre-projet/
+mvt_analyses/
 │
 ├── videos/
 │   ├── test_17.mp4
-│   └── result_test_17.mp4
+│   ├── test_xx.mp4
+│   ├── result_test_17.mp4
+│   ├── result_test_xx.mp4
+│   └── ...
 │
 ├── model/
 │   ├── yolo11x.pt
-│   └── pose_landmarker_lite.task
+│   ├── pose_landmarker_lite.task
+│   └── ...
 │
-├── main.py
+├── detection.py
 ├── requirements.txt
+├── LICENCE
 └── README.md
 ```
 
-## Licence
+## 📚 Licence
 
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
-## Auteur
+## 🙏 Remerciements
 
-[Votre Nom] - [Votre Email]
-
-## Remerciements
-
-- [Ultralytics YOLO](https://github.com/ultralytics/yolov5)
+- [Ultralytics YOLO](https://github.com/ultralytics)
 - [DeepSORT](https://github.com/nwojke/deep_sort)
-- [MediaPipe](https://mediapipe.dev/)
+- [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/)
 
----
+## 📚 Contribution
 
 N'hésitez pas à contribuer au projet en soumettant des pull requests ou en signalant des bugs.
-" > README.md
+
+---

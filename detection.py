@@ -24,7 +24,7 @@ TRACKER_PARAMS = {
     'n_init': 50,
     'max_cosine_distance': 0.17,
     'nn_budget': 300,
-    'override_track_class': None,
+    'override_track_class': 0,
     'half': False,
     'bgr': True,
     'max_iou_distance': 0.9
@@ -34,7 +34,7 @@ TRACKER_PARAMS = {
 LANDMARK_PARAMS = {
     'base_options': mp.tasks.BaseOptions(model_asset_path=POSE_MODEL_PATH),
     'running_mode': RunningMode.VIDEO,
-    'num_poses': 1,
+    'num_poses': 3,
     'min_pose_detection_confidence': 0.75,
     'min_pose_presence_confidence': 0.5,
     'min_tracking_confidence': 0.95,
