@@ -24,7 +24,7 @@ TRACKER_PARAMS = {
     'n_init': 50,  # Nombre de détections consécutives nécessaires pour initialiser une piste.
     'max_cosine_distance': 0.17,  # Distance cosinus maximale pour associer des détections à des pistes.
     'nn_budget': 300,  # Taille du budget pour le voisin le plus proche.
-    'override_track_class': 0,  # Classe de l'objet à suivre (0 pour suivre toutes les classes).
+    'override_track_class': 0,  # Classe de l'objet à suivre (0 pour suivre la class person).
     'half': False,  # Indique si les images doivent être réduites de moitié.
     'bgr': True,  # Indique si les images sont en format BGR.
     'max_iou_distance': 0.9  # Distance IoU maximale pour associer des détections à des pistes.
@@ -61,26 +61,26 @@ POSE_CONNECTIONS = [
 
 # Couleurs pour les connexions et les points clés des poses
 COLOR_CON = [
-    (16, 199, 22),    # Vert clair
-    (0, 222, 205),    # Cyan
-    (255, 255, 0),    # Jaune
-    (255, 165, 0),    # Orange
-    (0, 255, 255),    # Cyan clair
+    (22, 199, 16),    # Vert clair
+    (205, 222, 0),    # Cyan
+    (0, 255, 255),    # Jaune
+    (0, 165, 255),    # Orange
+    (255, 255, 0),    # Cyan clair
     (128, 0, 128),    # Violet
     (255, 0, 255),    # Magenta
     (128, 128, 128),  # Gris
-    (186, 38, 14),    # Rouge foncé
-    (255, 0, 0),      # Rouge
+    (14, 38, 186),    # Rouge foncé
+    (0, 0, 255),      # Rouge
     (0, 255, 0),      # Vert
-    (255, 215, 0),    # Or
-    (210, 105, 30),   # Chocolat
-    (220, 20, 60),    # Rouge cerise
+    (0, 215, 255),    # Or
+    (30, 105, 210),   # Chocolat
+    (60, 20, 220),    # Rouge cerise
     (0, 128, 0),      # Vert foncé
-    (0, 0, 255),      # Bleu
-    (0, 0, 128),      # Bleu foncé
-    (128, 128, 0),    # Vert olive
-    (128, 0, 0),      # Marron
-    (0, 128, 128),    # Turquoise
+    (255, 0, 0),      # Bleu
+    (128, 0, 0),      # Bleu foncé
+    (0, 128, 128),    # Vert olive
+    (0, 0, 128),      # Marron
+    (128, 128, 0),    # Turquoise
     (0, 0, 0),        # Noir
     (255, 255, 255)   # Blanc
 ]
