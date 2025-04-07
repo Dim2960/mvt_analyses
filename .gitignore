@@ -176,8 +176,12 @@ uv.lock
 pyproject.toml
 .python-version
 *.Identifier
+*.pt
 
 /list/
 /videos/
-/model/
+/models/
 /img/
+/data/
+/predictions/
+/tools/
