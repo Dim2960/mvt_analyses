@@ -1,0 +1,17 @@
+[Vidéo]
+   ↓
+[YOLO - détection des judokas (classe personnalisée)]
+   ↓
+[Tracking des judokas (DeepSORT avec ID unique)]
+   ↓
+[YOLO-Pose - estimation de la pose pour chaque judoka (via leurs bbox)]
+   ↓
+[Filtrage des frames non pertinentes (classifieur: "action" vs "non-action")]
+   ↓
+[Extraction de séquences de pose sur N frames (ex: sliding window)]
+   ↓
+[Two-Stream model : reconnaissance du mouvement]
+       - Stream spatial = séquence de poses (coords keypoints, angles, etc.)
+       - Stream temporel = dynamique (vitesses, distances, dérivées)
+   ↓
+[Classification du mouvement (ex: "seoi nage", "o soto gari", "uchimata"...)]
